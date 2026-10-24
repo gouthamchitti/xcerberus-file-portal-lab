@@ -162,8 +162,13 @@ Fix the **class**, not just this file. The corrected handler is in
 5. **Harden PHP** — `disable_functions = system,exec,shell_exec,passthru,proc_open,popen`;
    least-privilege runtime; `open_basedir`.
 6. **Egress filtering** — default-deny outbound from web hosts; this alone kills the reverse shell.
-7. **Patch management** — treat PHP RCEs as emergency patches (e.g. track **CVE-2026-6722**,
-   a critical PHP SOAP use-after-free class) and virtual-patch at the WAF until rollout completes.
+7. **Patch the engine** — treat PHP core RCEs as emergency patches. The current critical release is
+   **php2shell** (**CVE-2026-109618** / **CVE-2026-109619**, CVSS 9.2, *unauthenticated* RCE) — fixed in
+   PHP **8.2.35 / 8.3.36 / 8.4.27 / 8.5.12** (21 Oct 2026). Updating is the only complete fix; a WAF
+   virtual-patch only reduces exposure.
+8. **After patching** — confirm the fixed build on every host, **rotate** any secrets that may have
+   leaked from PHP worker memory (passwords, tokens, API keys), and keep the virtual-patch until all
+   hosts are verified. Retro-hunt for new `.php` in upload dirs and unexpected egress as IOCs.
 
 ## 4. Detect it — blue-team telemetry
 
