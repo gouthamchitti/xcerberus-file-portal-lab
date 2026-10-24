@@ -1,0 +1,6 @@
+customer_id,full_name,email,phone,plan,card_last4,monthly_value_usd
+AC-10231,Priya Nair,priya.nair@example.com,+1-312-555-0148,Enterprise,4417,4200
+AC-10244,Marcus Bell,marcus.bell@example.com,+1-415-555-0192,Business,8830,1150
+AC-10256,Lena Ortiz,lena.ortiz@example.com,+1-646-555-0177,Enterprise,2201,3900
+AC-10261,David Kim,david.kim@example.com,+1-206-555-0133,Starter,5567,99
+AC-10288,Fatima Rahman,fatima.rahman@example.com,+1-713-555-0121,Business,9043,1150

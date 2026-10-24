@@ -1,0 +1,5 @@
+app/uploads/*
+!app/uploads/.gitkeep
+c.txt
+note.php
+*.log
